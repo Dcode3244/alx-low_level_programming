@@ -4,7 +4,7 @@
  *
  * Description: 'prints the given text'
  *
- * Return: Always 0
+ * Return Always 0
  */
 int main(void)
 {
