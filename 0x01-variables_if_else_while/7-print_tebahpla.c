@@ -3,7 +3,8 @@
 /**
  * main - Entrance point
  *
- * Description: prints lower case alphabets from a - z
+ * Description: prints lower case alphabets from in reverse (z - a)
+ * followed by a new line
  *
  * Return: 0
  **/

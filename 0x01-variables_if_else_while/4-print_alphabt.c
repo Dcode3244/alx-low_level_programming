@@ -3,7 +3,8 @@
 /**
  * main - Entrance point
  *
- * Description: prints lower case alphabets from a - z
+ * Description: prints lower case alphabets from a - z,
+ * followed by a new line. and doestn't print "q" and "e"
  *
  * Return: 0
  **/

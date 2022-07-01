@@ -3,7 +3,8 @@
 /**
  * main - Entrance point
  *
- * Description: prints lower case alphabets from a - z
+ * Description: prints all the bumbers of base 16 in lowercase
+ * followed by a new line
  *
  * Return: 0
  **/
