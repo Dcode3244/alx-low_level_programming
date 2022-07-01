@@ -51,7 +51,7 @@ int main(void)
 		}
 		a++;
 		b = 0;
-		d = 1;
+		d = 0;
 		c = a;
 	}
 	return (0);
