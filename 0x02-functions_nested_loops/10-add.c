@@ -2,6 +2,10 @@
 /**
  * add -  adds two integers and returns the sum
  *
+ * @a: integer to be added
+ *
+ * @b: integer to be added
+ *
  * Return: Always sum
  *
  */
