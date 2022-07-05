@@ -28,7 +28,8 @@ int main(void)
 	b1 = b / 10000000000;
 	a2 = a % 10000000000;
 	b2 = b % 10000000000;
-	while (i >= 92 && i < 98)
+	i = 93;
+	while (i < 99)
 	{
 		half1 = a1 + b1;
 		half2 = a2 + b2;
@@ -38,7 +39,7 @@ int main(void)
 			half2 = half2 % 10000000000;
 		}
 		printf("%lu%lu", half1, half2);
-		if (i != 97)
+		if (i != 98)
 			printf(", ");
 		a1 = b1;
 		a2 = b2;
