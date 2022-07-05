@@ -34,7 +34,7 @@ int main(void)
 		i++;
 
 	}
-	fprintf(stderr, "Anything");
+	fprintf(stderr, "[Anything]");
 	printf("\n");
 	return (0);
 }
