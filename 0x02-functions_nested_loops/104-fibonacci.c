@@ -10,31 +10,42 @@
 
 int main(void)
 {
-	long double a;
-	long double b;
-	long double c;
-	int i = 0;
+	int i;
+	unsigned long a = 0, b = 1, sum;
+	unsigned long a1, a2, b1, b2;
+	unsigned long half1, half2;
 
-	a = 0;
-	b = 1;
-
-	while (i < 98)
+	while (i < 92)
 	{
-		c = a + b;
-		if (i == 97)
-		{
-			printf("%.0Lf", c);
-		}
-		else
-		{
-			printf("%.0Lf, ", c);
-			a = b;
-			b = c;
-		}
-		i++;
+		sum = a + b;
+		printf("%lu, ", sum);
 
+		a = b;
+		b = sum;
+		i++;
 	}
-	fprintf(stderr, "[Anything]");
+	a1 = a / 10000000000;
+	b1 = b / 10000000000;
+	a2 = a % 10000000000;
+	b2 = b % 10000000000;
+	while (i >= 92 && i < 98)
+	{
+		half1 = a1 + b1;
+		half2 = a2 + b2;
+		if (a2 + b2 > 999999999)
+		{
+			half1 = half1 + 1;
+			half2 = half2 % 10000000000;
+		}
+		printf("%lu%lu", half1, half2);
+		if (i != 97)
+			printf(", ");
+		a1 = b1;
+		a2 = b2;
+		b1 = half1;
+		b2 = half2;
+		i++;
+	}
 	printf("\n");
 	return (0);
 }
