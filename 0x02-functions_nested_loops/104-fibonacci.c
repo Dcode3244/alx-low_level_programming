@@ -34,8 +34,8 @@ int main(void)
 		half2 = a2 + b2;
 		if (a2 + b2 > 999999999)
 		{
-			half1 = half1 + 1;
-			half2 = half2 % 10000000000;
+			half1 += 1;
+			half2 %= 10000000000;
 		}
 		printf("%lu%lu", half1, half2);
 		if (i != 98)
