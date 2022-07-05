@@ -1,13 +1,10 @@
 #include <stdio.h>
 
 /**
- * -  finds the last digit of a number
+ * main - computes and prints sum of all multiples
+ * of 3 and 5 below 1024
  *
- * @n: input integer
- *
- * Description - prints the last digit of an integer
- *
- * Return: last digit
+ * Return: Always 0
  *
  */
 
@@ -15,6 +12,7 @@ int main(void)
 {
 	int n;
 	int sum;
+
 	while (n < 1024)
 	{
 		if ((n % 3) == 0 || (n % 5) == 0)
