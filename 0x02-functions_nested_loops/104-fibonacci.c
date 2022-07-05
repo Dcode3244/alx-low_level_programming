@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - prints the first 50 fibonacci numbers starting from 1 and 2
+ * main - prints the first 98 fibonacci numbers starting from 1 and 2
  *
  * description: prints the first 50 fibonacci numbers
  *
@@ -17,11 +17,11 @@ int main(void)
 
 	for (i = 0; i < 92; i++)
 	{
-		sum = a + b;
-		printf("%lu, ", sum);
+	sum = a + b;
+	printf("%lu, ", sum);
 
-		a = b;
-		b = sum;
+	a = b;
+	b = sum;
 	}
 	a1 = a / 10000000000;
 	b1 = b / 10000000000;
@@ -32,7 +32,7 @@ int main(void)
 	{
 		half1 = a1 + b1;
 		half2 = a2 + b2;
-		if (a2 + b2 > 999999999)
+		if (a2 + b2 > 9999999999)
 		{
 			half1 += 1;
 			half2 %= 10000000000;
