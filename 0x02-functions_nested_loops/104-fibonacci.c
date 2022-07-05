@@ -21,7 +21,7 @@ int main(void)
 	while (i < 98)
 	{
 		c = a + b;
-		if (i == 98)
+		if (i == 97)
 		{
 			printf("%.0Lf", c);
 		}
