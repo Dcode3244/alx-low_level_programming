@@ -10,13 +10,15 @@
 
 int main(void)
 {
-	printf("1, 2, ");
+	int a;
+	int b;
+	int c;
 	int i = 0;
-	int a, b, c;
 
 	a = 1;
 	b = 2;
 
+	printf("1, 2, ");
 	while (i < 50)
 	{
 		c = a + b;
