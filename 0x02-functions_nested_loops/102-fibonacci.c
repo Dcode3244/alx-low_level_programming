@@ -10,29 +10,28 @@
 
 int main(void)
 {
-	int a;
-	int b;
-	int c;
+	unsigned long a;
+	unsigned long b;
+	unsigned long c;
 	int i = 0;
 
-	a = 1;
-	b = 2;
+	a = 0;
+	b = 1;
 
-	printf("1, 2, ");
 	while (i < 50)
 	{
 		c = a + b;
-		if (i == 50)
+		if (i == 49)
 		{
-			printf("%d", c);
+			printf("%lu", c);
 		}
 		else
 		{
-			printf("%d, ", c);
+			printf("%lu, ", c);
 			a = b;
 			b = c;
-			i++;
 		}
+		i++;
 	}
 	printf("\n");
 	return (0);
