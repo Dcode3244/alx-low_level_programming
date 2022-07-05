@@ -3,9 +3,12 @@
 /**
  * main - prints the first 50 fibonacci numbers starting from 1 and 2
  *
+ * description: prints the first 50 fibonacci numbers
+ *
+ * Return: Always 0
  */
 
-void main(void)
+int main(void)
 {
 	printf("1, 2, ");
 	int i = 0;
@@ -20,7 +23,7 @@ void main(void)
 		if (i == 50)
 		{
 			printf("%d", c);
-		}	
+		}
 		else
 		{
 			printf("%d, ", c);
@@ -30,4 +33,5 @@ void main(void)
 		}
 	}
 	printf("\n");
+	return (0);
 }
