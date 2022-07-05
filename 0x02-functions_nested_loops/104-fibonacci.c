@@ -15,21 +15,20 @@ int main(void)
 	unsigned long a1, a2, b1, b2;
 	unsigned long half1, half2;
 
-	while (i < 92)
+	for (i = 0; i < 92; i++)
 	{
 		sum = a + b;
 		printf("%lu, ", sum);
 
 		a = b;
 		b = sum;
-		i++;
 	}
 	a1 = a / 10000000000;
 	b1 = b / 10000000000;
 	a2 = a % 10000000000;
 	b2 = b % 10000000000;
-	i = 93;
-	while (i < 99)
+
+	for (i = 93; i < 99; i++)
 	{
 		half1 = a1 + b1;
 		half2 = a2 + b2;
@@ -45,7 +44,6 @@ int main(void)
 		a2 = b2;
 		b1 = half1;
 		b2 = half2;
-		i++;
 	}
 	printf("\n");
 	return (0);
