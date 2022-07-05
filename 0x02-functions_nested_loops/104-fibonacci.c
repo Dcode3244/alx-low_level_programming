@@ -10,7 +10,7 @@
 
 int main(void)
 {
-	int i;
+	int i = 0;
 	unsigned long a = 0, b = 1, sum;
 	unsigned long a1, a2, b1, b2;
 	unsigned long half1, half2;
