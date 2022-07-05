@@ -1,11 +1,11 @@
 /**
  * _isalpha - my function
  *
+ * @c: the character to be checked
+ *
  * Description - checks for alphabetic character
  *
- * @c - the character to be checked
- *
- * return: 1 if is alphabetic, else 0
+ * Return: 1 if is alphabetic, else 0
  *
  */
 
