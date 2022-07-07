@@ -5,9 +5,11 @@
  * but for numbers divisible by 3 prints fizz
  * for numbers divisible by 5 prints buzz
  * for numbers divisible by both 5 and 3 prints fizzbuzz
+ *
+ * Return: always 0
  */
 
-void main(void)
+int main(void)
 {
 	int i = 1;
 
@@ -24,4 +26,5 @@ void main(void)
 		i++;
 	}
 	printf("\n");
+	return (0);
 }
