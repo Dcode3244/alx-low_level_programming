@@ -15,12 +15,12 @@ void print_rev(char *str)
 		len++;
 		i++;
 	}
-printf("%d\n", len);
-	j = len;
 
-	while (j > 0)
+	j = len - 1;
+
+	while (j >= 0)
 	{
-		_putchar(str[j - 1]);
+		_putchar(str[j]);
 		j--;
 	}
 
