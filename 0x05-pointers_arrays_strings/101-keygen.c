@@ -10,7 +10,7 @@
 
 int main(void)
 {
-	int i, n, pass, complem;
+	int i, n, pass, pd;
 
 	char values[52] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char password[222];
@@ -22,8 +22,8 @@ int main(void)
 		password[i] = values[n];
 		pass += password[i];
 	}
-	comple = 2772 - pass;
-	password[i] = complem;
+	pd = 2772 - pass;
+	password[i] = pd;
 	printf("%s\n", password);
 
 	return (0);
