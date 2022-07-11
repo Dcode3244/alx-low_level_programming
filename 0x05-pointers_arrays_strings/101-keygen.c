@@ -10,19 +10,19 @@
 
 int main(void)
 {
-	int i, n, passw, complem;
+	int i, n, pass, complem;
 
-	char seed[52] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char values[52] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char password[222];
 
 	srand(time(0));
-	for (i = 0; passw < 2772; i++)
+	for (i = 0; pass < 2772; i++)
 	{
 		n = rand() % 10;
-		password[i] = seed[n];
-		passw += password[i];
+		password[i] = values[n];
+		pass += password[i];
 	}
-	complem = 2772 - passw;
+	comple = 2772 - pass;
 	password[i] = complem;
 	printf("%s\n", password);
 
