@@ -23,14 +23,21 @@ char *cap_string(char *s)
 				isseparator = 0;
 			}
 		}
+		else if ((s[i] >= 'A' && s[i] <= 'Z') || (s[i] >= '0' && s[i] <= '9'))
+		{
+			isseparator = 0;
+			i++;
+			continue;
+		}
+		else if (s[i] == '-')
+		{
+			isseparator = 0;
+			i++;
+			continue;
+		}
+
 		else
 		{
-			if ((s[i] >= 'A' && s[i] <= 'Z') || (s[i] >= '0' && s[i] <= '9'))
-			{
-				i++;
-				isseparator = 0;
-				continue;
-			}
 			isseparator = 1;
 		}
 		i++;
