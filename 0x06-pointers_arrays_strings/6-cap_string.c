@@ -23,23 +23,25 @@ char *cap_string(char *s)
 				isseparator = 0;
 			}
 		}
-		else if ((s[i] >= 'A' && s[i] <= 'Z') || (s[i] >= '0' && s[i] <= '9'))
-		{
-			isseparator = 0;
-			i++;
-			continue;
-		}
-		else if (s[i] == '-')
-		{
-			isseparator = 0;
-			i++;
-			continue;
-		}
-
-		else
+		else if (s[i] == ' ' ||
+			s[i] == '\t' ||
+			s[i] == '\n' ||
+			s[i] == ',' ||
+			s[i] == ';' ||
+			s[i] == '.' ||
+			s[i] == '!' ||
+			s[i] == '?' ||
+			s[i] == '"' ||
+			s[i] == '(' ||
+			s[i] == ')' ||
+			s[i] == '{' ||
+			s[i] == '}')
 		{
 			isseparator = 1;
+			i++;
+			continue;
 		}
+		isseparator = 0;
 		i++;
 	}
 	return (s);
