@@ -11,39 +11,36 @@ void print_buffer(char *b, int size)
 {
 	int i = 0, j = 0;
 
-	while (b[i] < size)
+	if (size <= 0)
+		printf("\n");
+
+	while (i < size)
 	{
-		if ((i % 10) == 0)
-			printf("%08x: ", i);
-		while (b[j] < size)
+		printf("%08x: ", i);
+		j = 0;
+		while (j < 10)
 		{
-			if (j % 2 == 0)
+			if ((j + i) >= size)
+				printf("  ");
+			else
+				printf("%02x", b[i + j]);
+
+			if ((j % 2) != 0 && (j != 0))
 				printf(" ");
-			printf("%02x", b[j]);
 			j++;
-			if ((j % 10 == 0) && (j != 0))
-			{
-				printf(" ");
-				break;
-			}
-			if (j == size)
-			{
-				printf("           ");
-				break;
-			}
 		}
-		while (b[i] < size)
+		j = 0;
+		while (j < 10)
 		{
+			if (i + j >= size)
+				break;
 			if (b[i] >= 0 && b[i] <= 31)
 				printf(".");
 			else
-				printf("%c", b[i]);
-			i++;
-			if (i % 10 == 0 || i == size)
-				break;
+				printf("%c", b[i + j]);
+			j++;
 		}
-	printf("\n");
-	if (i == size)
-		break;
+		i = i + 10;
+		printf("\n");
 	}
 }
