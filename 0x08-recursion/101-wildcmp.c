@@ -62,7 +62,11 @@ int checker(char *s1, char *s2, int len1, int len2, int star)
 	if (*s1 == *s2)
 	{
 		if (*(s2 + 1) == '\0' && *(s1 + 1) != '\0')
+		{
+			if (star == 1)
+				return (checker(s1 + 1, s2, len1, len2, star));
 			return (0);
+		}
 		return (checker(s1 + 1, s2 + 1, len1, len2, star));
 	}
 	if (*s2 == '*' && *(s2 + 1) != '\0')
