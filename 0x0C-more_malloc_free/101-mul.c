@@ -16,7 +16,7 @@ char *__malloc(int len);
  */
 int main(int ac, char **av)
 {
-	int i, d, len1, len2, lenf, zeroes = 0;
+	int i, d, len1, len2, lenf, count = 0;
 
 	char *temp, *final;
 
@@ -32,6 +32,18 @@ int main(int ac, char **av)
 		return (0);
 	}
 
+	if (*(av[1]) == '0')
+	{
+		while (*av[1] && *(av[1]) == '0')
+			av[1]++;
+	}
+	if (*(av[2]) == '0')
+	{
+		while (*av[2] && *(av[2]) == '0')
+			av[2]++;
+	}
+
+
 	len1 = num_len(av[1]);
 	len2 = num_len(av[2]);
 	lenf = len1 + len2;
@@ -45,7 +57,7 @@ int main(int ac, char **av)
 	for (i = len2 - 1; i >= 0; i--)
 	{
 		d = *(av[2] + i) - '0';
-		__multiply(temp, av[1], d, zeroes++);
+		__multiply(temp, av[1], d, count++);
 		__sums(final, temp, lenf - 1);
 	}
 
