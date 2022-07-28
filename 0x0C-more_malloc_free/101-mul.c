@@ -32,6 +32,12 @@ int main(int ac, char **av)
 		return (0);
 	}
 
+	while ((*av[1]) == '0')
+		av[1]++;
+
+	while ((*av[2]) == '0')
+		av[2]++;
+
 	len1 = num_len(av[1]);
 	len2 = num_len(av[2]);
 	lenf = len1 + len2;
