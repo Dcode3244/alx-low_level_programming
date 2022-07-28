@@ -26,12 +26,6 @@ int main(int ac, char **av)
 		exit(98);
 	}
 
-	if (*(av[1]) == '\0' || *(av[2]) == '\0')
-	{
-		printf("0\n");
-		return (0);
-	}
-
 	if (*(av[1]) == '0')
 	{
 		while (*av[1] && *(av[1]) == '0')
@@ -43,6 +37,11 @@ int main(int ac, char **av)
 			av[2]++;
 	}
 
+	if (*(av[1]) == '\0' || *(av[2]) == '\0')
+	{
+		printf("0\n");
+		return (0);
+	}
 
 	len1 = num_len(av[1]);
 	len2 = num_len(av[2]);
