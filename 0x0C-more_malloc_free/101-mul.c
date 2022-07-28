@@ -12,7 +12,7 @@ char *__malloc(int len);
  * main - multiplies two positive number
  * @ac: number of command line arguments
  * @av: the command line arguments
- * Return: 0 if successfull
+ * Return: 0 if successfull if not exits with code 98
  */
 int main(int ac, char **av)
 {
