@@ -8,7 +8,7 @@
 
 void print_name(char *name, void (*func)(char *name))
 {
-	if (name == NULL)
+	if (name == NULL || func == NULL)
 		return;
 	func(name);
 }
