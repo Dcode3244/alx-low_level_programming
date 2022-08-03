@@ -20,10 +20,9 @@ int main(int av, char **ac)
 		printf("Error\n");
 		exit(98);
 	}
-
 	if (!(*ac[2] == '+' || *ac[2] == '*' ||
 		*ac[2] == '-' || *ac[2] == '/' ||
-		*ac[2] == '%') && ac[2][1] != '\0')
+		*ac[2] == '%') || ac[2][1] != '\0')
 	{
 		printf("Error\n");
 		exit(99);
