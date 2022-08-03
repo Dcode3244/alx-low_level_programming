@@ -6,5 +6,7 @@
 
 void print_name(char *name, void (*func)(char *name))
 {
+	if (*name == '\0')
+		return;
 	func(name);
 }
