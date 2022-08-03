@@ -32,7 +32,7 @@ int main(int ac, char **av)
 	{
 		op = *(unsigned char *)p_main;
 		printf("%.2x", op);
-		if (i != num)
+		if (i != num - 1)
 			printf(" ");
 		p_main++;
 	}
