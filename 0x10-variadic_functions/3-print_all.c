@@ -22,6 +22,7 @@ void print_all(const char * const format, ...)
 	};
 	va_list ap;
 	int i, j;
+	char *separator = "";
 
 	va_start(ap, format);
 
@@ -33,9 +34,9 @@ void print_all(const char * const format, ...)
 		{
 			if (format[i] == f[j].format)
 			{
+				printf("%s", separator);
 				f[j].printer(ap);
-				if (format[i + 1] != '\0')
-					printf(", ");
+				separator = ", ";
 			}
 			j++;
 		}
