@@ -60,7 +60,15 @@ void print_int(va_list ap)
 
 void print_string(va_list ap)
 {
-	printf("%s", va_arg(ap, char *));
+	char *s;
+
+	s = va_arg(ap, char *);
+	if (s == NULL)
+	{
+		printf("(nil)");
+		return;
+	}
+	printf("%s", s);
 }
 
 /**
