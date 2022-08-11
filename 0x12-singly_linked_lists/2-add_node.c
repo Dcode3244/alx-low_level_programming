@@ -24,8 +24,10 @@ list_t *add_node(list_t **head, const char *str)
 	temp->str = malloc(sizeof(char) * len);
 
 	if (temp->str == NULL)
+	{
+		free(temp);
 		return (NULL);
-
+	}
 	for (i = 0; i < len; i++)
 		(temp->str)[i] = str[i];
 
