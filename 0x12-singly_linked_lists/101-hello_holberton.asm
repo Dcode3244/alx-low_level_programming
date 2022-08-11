@@ -3,18 +3,20 @@ extern printf
 section .text
    global main
 
-main:
-   push rbp
+main:   
+          lea       rdi, [rel fmt]
+          lea       rsi, [rel msg]
+              
+          mov       al, 0
+          call      printf
 
-   mov rdi,fmt
-   mov rsi,msg
-   mov rax,0
-   call printf
+          mov       rax, 0x3C
+          xor       rdi, rdi
+          syscall
 
-   pop rbp
+          section   .data
 
-   mov rax,0
-   ret
+
 
 section .data
    msg: db "Hello, Holberton",10, 0
