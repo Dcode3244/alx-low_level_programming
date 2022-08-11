@@ -1,7 +1,7 @@
-	global	main
-	extern	printf
+extern	printf
 
-	section .text
+section .text
+	global main
 main:
 	lea	rdi, [rel fmts]
 	lea	rsi, [rel message]
