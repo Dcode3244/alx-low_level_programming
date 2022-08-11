@@ -12,7 +12,7 @@ size_t print_list(const list_t *h)
 	char *null = "[0] (nil)";
 
 	if (h == NULL)
-		return (NULL);
+		return (-1);
 
 	while (h != NULL)
 	{
