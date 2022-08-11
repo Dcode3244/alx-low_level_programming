@@ -9,7 +9,7 @@ size_t print_list(const list_t *h)
 {
 	int i;
 	size_t node = 0;
-	char *null = "[0] (nil)";
+	char *null = "[0] (nil)\n";
 
 	while (h)
 	{
@@ -17,7 +17,6 @@ size_t print_list(const list_t *h)
 		{
 			while (*null)
 				_putchar(*null++);
-			_putchar('\n');
 		}
 		else
 		{
