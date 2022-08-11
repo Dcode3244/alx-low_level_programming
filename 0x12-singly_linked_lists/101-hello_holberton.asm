@@ -13,5 +13,6 @@ main:
 	xor	rdi, rdi
 	syscall
 
+	section .data
 message: db "Hello Holberton",10,0
 fmts:	db "%s",0
