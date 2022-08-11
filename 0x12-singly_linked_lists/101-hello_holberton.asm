@@ -4,16 +4,19 @@ section .text
    global main
 
 main:
-          lea       rdi, [rel fmt]
-          lea       rsi, [rel msg]
+   push rbp
 
-          mov       al, 0
-          call      printf
+   mov rdi,	fmts
+   mov rsi,	message
+   mov rax,	0
+   call printf
 
-          mov       rax, 0x3C
-          xor       rdi, rdi
-          syscall
+   pop rbp
+
+   mov rax,0
+   ret
+
 
 section .data
-   msg: db "Hello, Holberton",10, 0
-   fmt: db "%s", 0
+   message: db "Hello, Holberton",10, 0
+   fmts: db "%s", 0
