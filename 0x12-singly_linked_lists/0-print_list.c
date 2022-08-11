@@ -8,11 +8,9 @@
 
 size_t print_list(const list_t *h)
 {
-	int i, node = 0;
+	int i;
+	size_t node = 0;
 	char *null = "[0] (nil)";
-
-	if (h == NULL)
-		return ('\0');
 
 	while (h != NULL)
 	{
