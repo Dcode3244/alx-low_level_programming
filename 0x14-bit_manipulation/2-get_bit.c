@@ -9,7 +9,7 @@
 
 int get_bit(unsigned long int n, unsigned int index)
 {
-	int i, j;
+	unsigned int i;
 	int bits[32];
 
 	for (i = 0; n > 1; i++)
