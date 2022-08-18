@@ -10,7 +10,7 @@
 int get_bit(unsigned long int n, unsigned int index)
 {
 	unsigned int i;
-	int bits[64];
+	int bits[65];
 
 	for (i = 0; n > 1; i++)
 	{
