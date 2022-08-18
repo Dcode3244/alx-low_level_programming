@@ -9,21 +9,11 @@
 
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned int i;
-	int bits[65];
+	int bit;
 
-	for (i = 0; n > 1; i++)
-	{
-		if (n % 2 == 0)
-			bits[i] = 0;
-		else
-			bits[i] = 1;
-		n = n / 2;
-	}
-	bits[i] = n;
-
-	if (index > i)
+	if (index >= 64)
 		return (-1);
+	bit = (n >> index) & 1;
 
-	return (bits[index]);
+	return (bit);
 }
