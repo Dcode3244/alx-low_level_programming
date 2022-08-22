@@ -49,7 +49,7 @@ int cp(char *from, char *to)
 	}
 
 	fd = open(from, O_RDONLY);
-	fd2 = open(to, O_RDWR | O_CREAT | O_TRUNC, 0664);
+	fd2 = open(to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	sz = read(fd, buf, 1024);
 
 	do {
