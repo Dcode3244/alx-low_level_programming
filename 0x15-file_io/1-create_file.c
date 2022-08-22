@@ -23,6 +23,9 @@ int create_file(const char *filename, char *text_content)
 
 	if (fd < 0 || wr < 0)
 		return (-1);
+
+	free(buf);
 	close(fd);
+
 	return (1);
 }
