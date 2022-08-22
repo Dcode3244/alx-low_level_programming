@@ -7,7 +7,7 @@ int cp(char *from, char *to);
  * main - entry point
  * @ac: number of command line arguments
  * @av: the command line arguments
- * Return: 1 on success
+ * Return: 0 on success
  */
 
 int main(int ac, char **av)
@@ -65,23 +65,22 @@ int cp(char *from, char *to)
 			exit(99);
 		}
 
-		c1 = close(fd);
-		c2 = close(fd2);
-
-		if (c1 < 0)
-		{
-			write(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
-			exit(100);
-		}
-		if (c2 < 0)
-		{
-			write(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
-			exit(100);
-		}
-
 		sz = read(fd, buf, 1024);
 		fd2 = open(to, O_WRONLY | O_APPEND);
 	} while (sz > 0);
+
+	c1 = close(fd);
+	c2 = close(fd2);
+	if (c1 < 0)
+	{
+		write(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		exit(100);
+	}
+	if (c2 < 0)
+	{
+		write(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
+		exit(100);
+	}
 
 	return (0);
 }
