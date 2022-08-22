@@ -11,8 +11,10 @@
 int create_file(const char *filename, char *text_content)
 {
 	int fd, wr;
-
 	char *buf;
+
+	if (filename == NULL)
+		return (-1);
 
 	buf = malloc(sizeof(char) * strlen(text_content));
 	if (buf == NULL)
