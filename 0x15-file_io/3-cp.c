@@ -3,6 +3,7 @@
 #include <stdio.h>
 
 int cp(char *from, char *to);
+void close_fd(int fd);
 /**
  * main - entry point
  * @ac: number of command line arguments
@@ -37,7 +38,7 @@ int main(int ac, char **av)
  */
 int cp(char *from, char *to)
 {
-	int fd, fd2, sz, wr, c1, c2;
+	int fd, fd2, sz, wr;
 	char *buf;
 
 	buf = malloc(sizeof(char) * 1024);
@@ -71,21 +72,24 @@ int cp(char *from, char *to)
 		fd2 = open(to, O_WRONLY | O_APPEND);
 	} while (sz > 0);
 
-	c1 = close(fd);
-	c2 = close(fd2);
-	if (c1 < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
-		free(buf);
-		exit(100);
-	}
-	if (c2 < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
-		free(buf);
-		exit(100);
-	}
 	free(buf);
+	close_fd(fd);
+	close_fd(fd2);
 
 	return (0);
+}
+
+/**
+* close_fd - closes open file
+*@fd: file descriptor
+*/
+void close_fd(int fd)
+{
+	int c = close(fd);
+
+	if (c < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		exit(100);
+	}
 }
