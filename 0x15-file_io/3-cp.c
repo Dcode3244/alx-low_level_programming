@@ -55,6 +55,7 @@ int cp(char *from, char *to)
 		if (fd < 0 || sz < 0)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", from);
+			free(buf);
 			exit(98);
 		}
 
@@ -62,6 +63,7 @@ int cp(char *from, char *to)
 		if (fd2 < 0 || wr < 0)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", to);
+			free(buf);
 			exit(99);
 		}
 
@@ -74,13 +76,16 @@ int cp(char *from, char *to)
 	if (c1 < 0)
 	{
 		write(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		free(buf);
 		exit(100);
 	}
 	if (c2 < 0)
 	{
 		write(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
+		free(buf);
 		exit(100);
 	}
+	free(buf);
 
 	return (0);
 }
