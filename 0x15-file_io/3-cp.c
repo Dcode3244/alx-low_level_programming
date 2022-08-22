@@ -50,32 +50,38 @@ int cp(char *from, char *to)
 	fd = open(from, O_RDONLY);
 	fd2 = open(to, O_RDWR | O_CREAT | O_TRUNC, 0664);
 	sz = read(fd, buf, 1024);
-	wr = write(fd2, buf, sz);
 
-	if (fd < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", from);
-		exit(98);
-	}
+	do {
+		if (fd < 0 || sz < 0)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", from);
+			exit(98);
+		}
 
-	if (fd2 < 0 || wr < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", to);
-		exit(99);
-	}
+		wr = write(fd2, buf, sz);
+		if (fd2 < 0 || wr < 0)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", to);
+			exit(99);
+		}
 
-	c1 = close(fd);
-	c2 = close(fd2);
+		c1 = close(fd);
+		c2 = close(fd2);
 
-	if (c1 < 0)
-	{
-		write(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
-		exit(100);
-	}
-	if (c2 < 0)
-	{
-		write(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
-		exit(100);
-	}
+		if (c1 < 0)
+		{
+			write(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+			exit(100);
+		}
+		if (c2 < 0)
+		{
+			write(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
+			exit(100);
+		}
+
+		sz = read(fd, buf, 1024);
+		fd2 = open(to, O_WRONLY | O_APPEND);
+	} while (sz > 0);
+
 	return (0);
 }
