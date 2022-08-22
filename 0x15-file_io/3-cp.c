@@ -75,13 +75,13 @@ int cp(char *from, char *to)
 	c2 = close(fd2);
 	if (c1 < 0)
 	{
-		write(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		free(buf);
 		exit(100);
 	}
 	if (c2 < 0)
 	{
-		write(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
 		free(buf);
 		exit(100);
 	}
