@@ -11,13 +11,8 @@
 int append_text_to_file(const char *filename, char *text_content)
 {
 	int fd, wr;
-	char *buf;
 
 	if (filename == NULL)
-		return (-1);
-
-	buf = malloc(sizeof(char) * strlen(text_content));
-	if (buf == NULL)
 		return (-1);
 
 	fd = open(filename, O_RDWR | O_APPEND);
@@ -25,11 +20,8 @@ int append_text_to_file(const char *filename, char *text_content)
 		wr = write(fd, text_content, strlen(text_content));
 
 	if (fd < 0 || wr < 0)
-	{
-		free(buf);
 		return (-1);
-	}
-	free(buf);
+
 	close(fd);
 
 	return (1);
