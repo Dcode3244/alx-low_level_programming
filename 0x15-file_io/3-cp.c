@@ -25,7 +25,7 @@ int main(int ac, char **av)
 
 	cp(from, to);
 
-	return (1);
+	return (0);
 
 }
 
@@ -33,7 +33,7 @@ int main(int ac, char **av)
  * cp - copies from one file to another
  * @from: the file to be copied from
  * @to: the file to be copied to
- * Return: 1 on success
+ * Return: 0 on success
  */
 int cp(char *from, char *to)
 {
@@ -42,7 +42,10 @@ int cp(char *from, char *to)
 
 	buf = malloc(sizeof(char) * 1024);
 	if (buf == NULL)
-		return (-1);
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", to);
+		exit(99);
+	}
 
 	fd = open(from, O_RDONLY);
 	fd2 = open(to, O_RDWR | O_CREAT | O_TRUNC, 0664);
@@ -55,20 +58,24 @@ int cp(char *from, char *to)
 		exit(98);
 	}
 
-	if (fd < 0 || fd2 < 0 || wr < 0 || sz < 0)
-		return (-1);
+	if (fd2 < 0 || wr < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", to);
+		exit(99);
+	}
+
 	c1 = close(fd);
 	c2 = close(fd2);
 
-	if (c1 < 0 || c2 < 0)
+	if (c1 < 0)
 	{
 		write(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
-	else if (c2 < 0)
+	if (c2 < 0)
 	{
 		write(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
 		exit(100);
 	}
-	return (1);
+	return (0);
 }
