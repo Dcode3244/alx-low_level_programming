@@ -5,27 +5,29 @@
  * main - Generates and prints passwords for the crackme5 executable.
  * @argc: The number of comand line arguments.
  * @argv: the command line arguments.
- * Return: 0.
+ * Return: 0 on success, 1 on failure.
  */
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
-	char password[7], *codex;
+	char pwd[7], *str;
 	int len = strlen(argv[1]), i, tmp;
 
 	codex = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU+4mjW6fxqZeF3Qa1rPhdKIouk";
+	if (argc != 2)
+		return (1);
 
 	tmp = (len ^ 59) & 63;
-	password[0] = codex[tmp];
+	pwd[0] = str[tmp];
 
 	tmp = 0;
 	for (i = 0; i < len; i++)
 		tmp += argv[1][i];
-	password[1] = codex[(tmp ^ 79) & 63];
+	pwd[1] = str[(tmp ^ 79) & 63];
 
 	tmp = 1;
 	for (i = 0; i < len; i++)
 		tmp *= argv[1][i];
-	password[2] = codex[(tmp ^ 85) & 63];
+	pwd[2] = str[(tmp ^ 85) & 63];
 
 	tmp = 0;
 	for (i = 0; i < len; i++)
@@ -34,19 +36,18 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 			tmp = argv[1][i];
 	}
 	srand(tmp ^ 14);
-	password[3] = codex[rand() & 63];
+	pwd[3] = str[rand() & 63];
 
 	tmp = 0;
 	for (i = 0; i < len; i++)
 		tmp += (argv[1][i] * argv[1][i]);
-	password[4] = codex[(tmp ^ 239) & 63];
+	pwd[4] = str[(tmp ^ 239) & 63];
 
 	for (i = 0; i < argv[1][0]; i++)
 		tmp = rand();
-	password[5] = codex[(tmp ^ 229) & 63];
-
-	password[6] = '\0';
-	printf("%s", password);
+	pwd[5] = str[(tmp ^ 229) & 63];
+	pwd[6] = '\0';
+	printf("%s", pwd);
 	return (0);
 }
 
