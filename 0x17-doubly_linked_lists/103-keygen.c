@@ -12,7 +12,9 @@ int main(int argc, char *argv[])
 	char password[7], *str;
 	int len = strlen(argv[1]), i, tmp;
 
-	codex = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU+4mjW6fxqZeF3Qa1rPhdKIouk";
+	if (argc != 2)
+		return (1);
+	str = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU+4mjW6fxqZeF3Qa1rPhdKIouk";
 
 	tmp = (len ^ 59) & 63;
 	password[0] = str[tmp];
