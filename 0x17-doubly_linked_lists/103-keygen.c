@@ -7,7 +7,7 @@
  * @argv: the command line arguments.
  * Return: 0 on success, 1 on failure.
  */
-int main(int __attribute__((__unused__)) argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	char password[7], *str;
 	int len = strlen(argv[1]), i, tmp;
