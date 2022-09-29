@@ -9,7 +9,7 @@
  */
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
-	char pwd[7], *str;
+	char password[7], *str;
 	int len = strlen(argv[1]), i, tmp;
 
 	codex = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU+4mjW6fxqZeF3Qa1rPhdKIouk";
@@ -17,17 +17,17 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		return (1);
 
 	tmp = (len ^ 59) & 63;
-	pwd[0] = str[tmp];
+	password[0] = str[tmp];
 
 	tmp = 0;
 	for (i = 0; i < len; i++)
 		tmp += argv[1][i];
-	pwd[1] = str[(tmp ^ 79) & 63];
+	password[1] = str[(tmp ^ 79) & 63];
 
 	tmp = 1;
 	for (i = 0; i < len; i++)
 		tmp *= argv[1][i];
-	pwd[2] = str[(tmp ^ 85) & 63];
+	password[2] = str[(tmp ^ 85) & 63];
 
 	tmp = 0;
 	for (i = 0; i < len; i++)
@@ -36,18 +36,18 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 			tmp = argv[1][i];
 	}
 	srand(tmp ^ 14);
-	pwd[3] = str[rand() & 63];
+	password[3] = str[rand() & 63];
 
 	tmp = 0;
 	for (i = 0; i < len; i++)
 		tmp += (argv[1][i] * argv[1][i]);
-	pwd[4] = str[(tmp ^ 239) & 63];
+	password[4] = str[(tmp ^ 239) & 63];
 
 	for (i = 0; i < argv[1][0]; i++)
 		tmp = rand();
-	pwd[5] = str[(tmp ^ 229) & 63];
-	pwd[6] = '\0';
-	printf("%s", pwd);
+	password[5] = str[(tmp ^ 229) & 63];
+	password[6] = '\0';
+	printf("%s", password);
 	return (0);
 }
 
