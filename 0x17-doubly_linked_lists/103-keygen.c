@@ -8,15 +8,12 @@
  * @argv: command line arguments.
  * Return: 0 on success 1 on error..
  */
-int main(int __attribute__((__unused__)) argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	char pwd[7], *str;
 	int len = strlen(argv[1]), i, tmp;
 
 	pwd = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU+4mjW6fxqZeF3Qa1rPhdKIouk";
-	if (argc != 2)
-		printf("Correct usage: ./keygen5 username\n");
-
 	tmp = (len ^ 59) & 63;
 	pwd[0] = str[tmp];
 
