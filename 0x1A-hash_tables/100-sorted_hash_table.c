@@ -82,7 +82,6 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		ht->array[idx] = item;
 	}
 
-
 	if (ht->shead == NULL)
 	{
 		item->sprev = NULL;
@@ -197,7 +196,7 @@ void shash_table_print_rev(const shash_table_t *ht)
 void shash_table_delete(shash_table_t *ht)
 {
 	shash_node_t *front, *temp;
-	
+
 	if (ht == NULL)
 		return;
 
