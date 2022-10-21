@@ -31,7 +31,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		ht->array[idx] = item;
 		ht->array[idx]->next = NULL;
 	}
-	else if (ht->array[idx]->key == key)
+	else if (strcmp(ht->array[idx]->key, key) == 0)
 	{
 		strcpy(ht->array[idx]->value, value);
 	}
@@ -40,5 +40,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		item->next = ht->array[idx];
 		ht->array[idx] = item;
 	}
+
 	return (1);
 }
