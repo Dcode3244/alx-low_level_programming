@@ -22,24 +22,26 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 
 	idx = key_index((unsigned char *)key, ht->size);
-
 	item->key = strdup(key);
 	if (item->key == NULL)
+	{
+		free(item);
 		return (0);
-
+	}
 	item->value = strdup(value);
 	if (item->value == NULL)
+	{
+		free(item->key);
+		free(item);
 		return (0);
-
+	}
 	if (ht->array[idx] == NULL)
 	{
 		ht->array[idx] = item;
 		ht->array[idx]->next = NULL;
 	}
 	else if (strcmp(ht->array[idx]->key, key) == 0)
-	{
 		strcpy(ht->array[idx]->value, value);
-	}
 	else
 	{
 		item->next = ht->array[idx];
