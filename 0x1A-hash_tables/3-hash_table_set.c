@@ -12,41 +12,44 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int idx;
-	hash_node_t *item;
+	hash_node_t *item, *temp;
 	char *value_cp;
 
 	if (key == NULL || *key == '\0' || ht == NULL || value == NULL)
 		return (0);
-
-	item = malloc(sizeof(hash_node_t));
-	if (item == NULL)
-		return (0);
 	idx = key_index((unsigned char *)key, ht->size);
-	item->key = strdup(key);
-	if (item->key == NULL)
-		return (0);
-
 	value_cp = strdup(value);
 	if (value_cp == NULL)
 		return (0);
-
-	if (ht->array[idx] == NULL)
+	item = malloc(sizeof(hash_node_t));
+	if (item == NULL)
+		return (0);
+	item->key = strdup(key);
+	if (item->key == NULL)
 	{
-		item->value = value_cp;
-		ht->array[idx] = item;
-		ht->array[idx]->next = NULL;
-	}
-	else if (strcmp(ht->array[idx]->key, key) == 0)
-	{
-		free(item->key);
+		free(value_cp);
 		free(item);
-		free(ht->array[idx]->value);
-		ht->array[idx]->value = value_cp;
+		return (0);
 	}
+	item->value = value_cp;
+	item->next = NULL;
+	if (ht->array[idx] == NULL)
+		ht->array[idx] = item;
 	else
 	{
+		temp = ht->array[idx];
+		while (strcmp(temp->key, key) != 0 && temp->next != NULL)
+			temp = temp->next;
+		if (strcmp(temp->key, key) == 0)
+		{
+			free(item->key);
+			free(item);
+			free(temp->value);
+			temp->value = value_cp;
+			return (1);
+		}
 		item->next = ht->array[idx];
-		ht->array[idx] = item;
+		ht->array[idx]->next = item;
 	}
 	return (1);
 }
