@@ -92,20 +92,20 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	}
 	if (num == 1)
 	{
-		ht->array[idx]->sprev = NULL;
-		ht->array[idx]->snext = NULL;
-		ht->shead = ht->array[idx];
-		ht->stail = ht->array[idx];
+		item->sprev = NULL;
+		item->snext = NULL;
+		ht->shead = item;
+		ht->stail = item;
 		return (1);
 	}
 
 	head = ht->shead;
 	if (*(head->key) > *key)
 	{
-		ht->array[idx]->snext = head;
-		ht->array[idx]->sprev = NULL;
-		ht->shead = ht->array[idx];
-		head->sprev = ht->array[idx];
+		item->snext = head;
+		item->sprev = NULL;
+		ht->shead = item;
+		head->sprev = item;
 		return (1);
 	}
 	head = ht->shead;
@@ -114,16 +114,16 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 
 	if ((head->snext == NULL) && ((*(head->key)) < (*(item->key))))
 	{
-		ht->stail = ht->array[idx];
-		ht->array[idx]->snext = NULL;
-		ht->array[idx]->sprev = head;
-		head->snext = ht->array[idx];
+		ht->stail = item;
+		item->snext = NULL;
+		item->sprev = head;
+		head->snext = item;
 		return (1);
 	}
-	ht->array[idx]->snext = head;
-	ht->array[idx]->sprev = head->sprev;
-	head->sprev->snext = ht->array[idx];
-	head->sprev = ht->array[idx];
+	item->snext = head;
+	item->sprev = head->sprev;
+	head->sprev->snext = item;
+	head->sprev = item;
 
 	return (1);
 }
