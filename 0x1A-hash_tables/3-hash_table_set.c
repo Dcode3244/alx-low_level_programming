@@ -24,7 +24,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	idx = key_index((unsigned char *)key, ht->size);
 
 	item->key = strdup(key);
+	if (item->key == NULL)
+		return (0);
+
 	item->value = strdup(value);
+	if (item->value == NULL)
+		return (0);
 
 	if (ht->array[idx] == NULL)
 	{
